@@ -51,6 +51,9 @@ hdf5-1.8.14/hdf5/lib/libhdf5.a:
 	if [ ! -e hdf5-1.8.14/hdf5/lib/libhdf5.a ]; then \
 		wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.14/src/hdf5-1.8.14.tar.gz; \
 		tar -xzf hdf5-1.8.14.tar.gz || exit 255; \
+		cd hdf5-1.8.14/bin/;\
+                wget -O config.guess "http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD";\
+                cd ../..;\
 		cd hdf5-1.8.14 && \
 			./configure --enable-threadsafe && \
 			make && make install; \
